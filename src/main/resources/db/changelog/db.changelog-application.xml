@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="Shakhau" id="1">
+
+        <createTable tableName="cache_item">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="key" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="value" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="update_timestamp" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="actual" type="boolean">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Shakhau" id="2">
+
+        <createIndex indexName="idx_cache_item_key" tableName="cache_item" unique="true">
+            <column name="key" type="varchar(255)"/>
+        </createIndex>
+
+    </changeSet>
+
+</databaseChangeLog>

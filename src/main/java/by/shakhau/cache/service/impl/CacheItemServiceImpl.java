@@ -32,8 +32,10 @@ public class CacheItemServiceImpl implements CacheItemService {
             throw new ResourceNotFoundException(key + " key not found in cache");
         } else if (!cacheItemEntity.getActual()) {
             cacheItemEntity.setActual(true);
-            cacheItemRepository.save(cacheItemEntity);
         }
+
+        cacheItemEntity.setUpdateTimestamp(System.currentTimeMillis());
+        cacheItemRepository.save(cacheItemEntity);
 
         return cacheItemMapper.toDto(cacheItemEntity);
     }
@@ -53,6 +55,7 @@ public class CacheItemServiceImpl implements CacheItemService {
         cacheItemEntity.setKey(cacheItem.getKey());
         cacheItemEntity.setValue(cacheItem.getValue());
         cacheItemEntity.setActual(true);
+        cacheItemEntity.setUpdateTimestamp(System.currentTimeMillis());
         cacheItemRepository.save(cacheItemEntity);
     }
 

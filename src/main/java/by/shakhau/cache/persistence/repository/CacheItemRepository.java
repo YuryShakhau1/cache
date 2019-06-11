@@ -2,6 +2,7 @@ package by.shakhau.cache.persistence.repository;
 
 import by.shakhau.cache.persistence.entity.CacheItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface CacheItemRepository extends JpaRepository<CacheItemEntity, Long> {
@@ -17,6 +18,7 @@ public interface CacheItemRepository extends JpaRepository<CacheItemEntity, Long
     @Query("select max(ci.updateTimestamp) from CacheItemEntity ci")
     Long maxUpdateTimestamp();
 
-    @Query("delete from CacheItemEntity ci where ci.actual = false and ci.updateTimestamp < timestampTo")
+    @Modifying
+    @Query("delete from CacheItemEntity ci where ci.actual = false or ci.updateTimestamp < ?1")
     void deleteOldRecordsTo(Long timestampTo);
 }
