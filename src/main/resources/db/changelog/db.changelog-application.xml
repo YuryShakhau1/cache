@@ -33,6 +33,14 @@
             <column name="key" type="varchar(255)"/>
         </createIndex>
 
+        <createIndex indexName="idx_cache_item_update_timestamp" tableName="cache_item">
+            <column name="update_timestamp" type="bigint"/>
+        </createIndex>
+
+        <createIndex indexName="idx_cache_item_actual" tableName="cache_item">
+            <column name="actual" type="boolean"/>
+        </createIndex>
+
     </changeSet>
 
 </databaseChangeLog>
