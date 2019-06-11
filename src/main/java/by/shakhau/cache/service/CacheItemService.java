@@ -6,4 +6,5 @@ public interface CacheItemService {
 
     CacheItem findByKey(String key);
     void add(CacheItem cacheItem);
+    void markToDelete(String key);
 }

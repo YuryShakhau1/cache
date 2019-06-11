@@ -22,4 +22,9 @@ public class CacheResource {
     public void add(@RequestBody CacheItem cacheItem) {
         cacheItemService.add(cacheItem);
     }
+
+    @DeleteMapping(value = "/{key}")
+    public void delete(@PathVariable String key) {
+        cacheItemService.markToDelete(key);
+    }
 }
