@@ -17,10 +17,7 @@
             <column name="value" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="update_timestamp" type="bigint">
-                <constraints nullable="false" />
-            </column>
-            <column name="actual" type="boolean">
+            <column name="active" type="boolean">
                 <constraints nullable="false" />
             </column>
         </createTable>

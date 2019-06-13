@@ -1,9 +1,16 @@
 package by.shakhau.cache.service.dto;
 
-public class CacheItem implements Dto {
+public class KeyValue implements Dto {
 
     private String key;
     private String value;
+
+    public KeyValue() {}
+
+    public KeyValue(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
 
     public String getKey() {
         return key;

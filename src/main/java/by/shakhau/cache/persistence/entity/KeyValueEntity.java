@@ -1,11 +1,10 @@
 package by.shakhau.cache.persistence.entity;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @javax.persistence.Entity
 @Table(name = "cache_item")
-public class CacheItemEntity implements Entity<Long> {
+public class KeyValueEntity implements Entity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +17,8 @@ public class CacheItemEntity implements Entity<Long> {
     @Column(name = "value", nullable = false)
     private String value;
 
-    @Column(name = "update_timestamp", nullable = false)
-    private Long updateTimestamp;
-
-    @Column(name = "actual", nullable = false)
-    private Boolean actual;
+    @Column(name = "active", nullable = false)
+    private Boolean active;
 
     @Override
     public Long getId() {
@@ -49,19 +45,11 @@ public class CacheItemEntity implements Entity<Long> {
         this.value = value;
     }
 
-    public Long getUpdateTimestamp() {
-        return updateTimestamp;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setUpdateTimestamp(Long updateTimestamp) {
-        this.updateTimestamp = updateTimestamp;
-    }
-
-    public Boolean getActual() {
-        return actual;
-    }
-
-    public void setActual(Boolean actual) {
-        this.actual = actual;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

@@ -1,32 +1,32 @@
 package by.shakhau.cache.service.mapper;
 
-import by.shakhau.cache.persistence.entity.CacheItemEntity;
-import by.shakhau.cache.service.dto.CacheItem;
+import by.shakhau.cache.persistence.entity.KeyValueEntity;
+import by.shakhau.cache.service.dto.KeyValue;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CacheItemMapper implements Mapper<CacheItemEntity, CacheItem> {
+public class CacheItemMapper implements Mapper<KeyValueEntity, KeyValue> {
 
 
     @Override
-    public CacheItemEntity toEntity(CacheItem dto) {
+    public KeyValueEntity toEntity(KeyValue dto) {
         if (dto == null) {
             return null;
         }
 
-        CacheItemEntity entity = new CacheItemEntity();
+        KeyValueEntity entity = new KeyValueEntity();
         entity.setKey(dto.getKey());
         entity.setValue(dto.getValue());
         return entity;
     }
 
     @Override
-    public CacheItem toDto(CacheItemEntity entity) {
+    public KeyValue toDto(KeyValueEntity entity) {
         if (entity == null) {
             return null;
         }
 
-        CacheItem dto = new CacheItem();
+        KeyValue dto = new KeyValue();
         dto.setKey(entity.getKey());
         dto.setValue(entity.getValue());
         return dto;
