@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/vv")
 public class KeyValueResource {
 
     @Qualifier("KeyValueCachedServiceImpl")
