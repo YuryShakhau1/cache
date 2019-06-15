@@ -3,13 +3,15 @@ package by.shakhau.cache.rest;
 import by.shakhau.cache.service.KeyValueService;
 import by.shakhau.cache.service.dto.KeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/vv")
 public class KeyValueResource {
 
+    @Qualifier("KeyValueCachedServiceImpl")
     @Autowired
     private KeyValueService keyValueService;
 
